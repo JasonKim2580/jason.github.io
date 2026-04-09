@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DAEWON CTS — 기업 가치 보고서 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Bebas+Neue&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0D2151;
+    --blue: #1565C6;
+    --blue-mid: #2176DB;
+    --light-blue: #4A9EE8;
+    --sky: #7EC8F5;
+    --bg: #F0F6FF;
+    --white: #FFFFFF;
+    --accent: #F0A500;
+    --text: #1A2035;
+    --text-light: #4A5568;
+    --border: #CBD5E1;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background: var(--white);
+    color: var(--text);
+    line-height: 1.7;
+  }
+
+  /* ── HERO ─────────────────────────────── */
+  .hero {
+    background: linear-gradient(135deg, var(--navy) 0%, #162D6B 50%, #1A3A8F 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 80px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    width: 700px; height: 700px;
+    border-radius: 50%;
+    border: 1px solid rgba(74,158,232,0.15);
+    top: -200px; right: -200px;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    border: 1px solid rgba(74,158,232,0.1);
+    bottom: -150px; left: -150px;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background: rgba(74,158,232,0.2);
+    border: 1px solid rgba(74,158,232,0.4);
+    color: var(--sky);
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 8px 20px;
+    border-radius: 40px;
+    margin-bottom: 32px;
+    animation: fadeInDown 0.8s ease;
+  }
+
+  .hero-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(64px, 10vw, 120px);
+    color: var(--white);
+    letter-spacing: 6px;
+    line-height: 1;
+    animation: fadeInUp 0.8s ease 0.1s both;
+  }
+
+  .hero-sub {
+    font-size: clamp(20px, 3vw, 32px);
+    color: var(--light-blue);
+    font-weight: 300;
+    margin-top: 16px;
+    animation: fadeInUp 0.8s ease 0.2s both;
+  }
+
+  .hero-divider {
+    width: 80px; height: 3px;
+    background: linear-gradient(90deg, var(--light-blue), var(--accent));
+    margin: 32px auto;
+    animation: scaleIn 0.8s ease 0.3s both;
+  }
+
+  .hero-tagline {
+    font-size: clamp(14px, 2vw, 18px);
+    color: rgba(255,255,255,0.7);
+    max-width: 600px;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    animation: fadeInUp 0.8s ease 0.4s both;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 60px;
+    margin-top: 64px;
+    animation: fadeInUp 0.8s ease 0.5s both;
+  }
+
+  .stat-item { text-align: center; }
+  .stat-number {
+    font-family: 'Inter', sans-serif;
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--white);
+    display: block;
+  }
+  .stat-label {
+    font-size: 12px;
+    color: var(--sky);
+    letter-spacing: 1px;
+    margin-top: 4px;
+  }
+
+  /* ── LAYOUT ──────────────────────────── */
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
+
+  section { padding: 100px 0; }
+  section:nth-child(even) { background: var(--bg); }
+
+  /* ── SECTION HEADER ──────────────────── */
+  .section-header { margin-bottom: 64px; }
+  .section-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 72px;
+    color: rgba(21,101,198,0.08);
+    line-height: 1;
+    margin-bottom: -20px;
+  }
+  .section-title {
+    font-size: 36px;
+    font-weight: 900;
+    color: var(--navy);
+    position: relative;
+    display: inline-block;
+  }
+  .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px; left: 0;
+    width: 50px; height: 4px;
+    background: linear-gradient(90deg, var(--blue), var(--accent));
+    border-radius: 2px;
+  }
+  .section-desc {
+    margin-top: 24px;
+    font-size: 16px;
+    color: var(--text-light);
+    max-width: 680px;
+  }
+
+  /* ── COMPANY INFO ────────────────────── */
+  .info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(13,33,81,0.08);
+  }
+
+  .info-row {
+    display: contents;
+  }
+  .info-row:nth-child(odd) .info-label { background: #EBF3FB; }
+  .info-row:nth-child(odd) .info-value { background: #EBF3FB; }
+  .info-row:nth-child(even) .info-label { background: #F8FBFF; }
+  .info-row:nth-child(even) .info-value { background: #F8FBFF; }
+
+  .info-label, .info-value {
+    padding: 18px 24px;
+    border-bottom: 1px solid var(--border);
+    font-size: 15px;
+  }
+  .info-label {
+    font-weight: 700;
+    color: var(--navy);
+    border-right: 1px solid var(--border);
+  }
+  .info-value { color: var(--text); }
+  .info-highlight { color: var(--blue); font-weight: 700; }
+
+  /* ── VALUES CARDS ────────────────────── */
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+  }
+
+  .value-card {
+    background: var(--navy);
+    border-radius: 16px;
+    padding: 40px 32px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .value-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 48px rgba(13,33,81,0.3);
+  }
+
+  .value-card::before {
+    content: '';
+    position: absolute;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: rgba(74,158,232,0.05);
+    top: -80px; right: -60px;
+  }
+
+  .value-korean {
+    font-size: 48px;
+    font-weight: 900;
+    color: var(--white);
+    display: block;
+    margin-bottom: 8px;
+  }
+  .value-sub {
+    font-size: 12px;
+    color: var(--light-blue);
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+  }
+  .value-desc {
+    font-size: 14px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.8;
+  }
+
+  /* ── VALUE PROPOSITION ───────────────── */
+  .vp-headline {
+    background: linear-gradient(135deg, var(--navy), #1A3A8F);
+    border-radius: 20px;
+    padding: 48px 56px;
+    color: var(--white);
+    margin-bottom: 64px;
+    position: relative;
+    overflow: hidden;
+  }
+  .vp-headline::before {
+    content: '"';
+    position: absolute;
+    font-family: Georgia, serif;
+    font-size: 300px;
+    color: rgba(255,255,255,0.03);
+    top: -60px; left: -20px;
+    line-height: 1;
+  }
+  .vp-headline p {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.9);
+    position: relative;
+    z-index: 1;
+  }
+  .vp-headline strong { color: var(--sky); }
+
+  .pillar-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+
+  .pillar {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-top: 4px solid var(--blue);
+    border-radius: 0 0 16px 16px;
+    padding: 36px 28px;
+    transition: box-shadow 0.3s ease;
+  }
+  .pillar:hover { box-shadow: 0 12px 40px rgba(21,101,198,0.12); }
+
+  .pillar-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 48px;
+    color: rgba(21,101,198,0.15);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .pillar-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 16px;
+    line-height: 1.4;
+  }
+  .pillar-text {
+    font-size: 14px;
+    color: var(--text-light);
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+  .pillar-bullets { list-style: none; }
+  .pillar-bullets li {
+    font-size: 13px;
+    color: var(--text-light);
+    padding: 5px 0 5px 18px;
+    position: relative;
+    border-bottom: 1px solid #F0F4FF;
+  }
+  .pillar-bullets li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--blue);
+    font-size: 11px;
+  }
+
+  /* ── BIZ CARDS ───────────────────────── */
+  .biz-list { display: flex; flex-direction: column; gap: 16px; }
+
+  .biz-row {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    transition: transform 0.2s ease;
+  }
+  .biz-row:hover { transform: translateX(4px); }
+
+  .biz-label {
+    background: var(--navy);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 15px;
+    padding: 20px 16px;
+    text-align: center;
+    line-height: 1.4;
+  }
+  .biz-content {
+    padding: 20px 28px;
+    background: var(--white);
+  }
+  .biz-content-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--blue);
+    margin-bottom: 6px;
+  }
+  .biz-content-text {
+    font-size: 14px;
+    color: var(--text-light);
+  }
+
+  /* ── AI STACK ────────────────────────── */
+  .stack-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+    margin-top: 48px;
+  }
+
+  .stack-item {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px 16px;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+  .stack-item:hover {
+    border-color: var(--blue);
+    box-shadow: 0 8px 24px rgba(21,101,198,0.12);
+    transform: translateY(-4px);
+  }
+
+  .stack-icon {
+    width: 48px; height: 48px;
+    background: linear-gradient(135deg, var(--navy), var(--blue));
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 16px;
+    font-size: 22px;
+  }
+  .stack-name {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+  .stack-desc {
+    font-size: 11px;
+    color: var(--text-light);
+    line-height: 1.6;
+  }
+
+  /* ── STRENGTHS ───────────────────────── */
+  .strength-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .strength-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 36px 28px;
+    box-shadow: 0 2px 16px rgba(13,33,81,0.06);
+    border: 1px solid rgba(21,101,198,0.1);
+  }
+
+  .strength-icon-wrap {
+    width: 56px; height: 56px;
+    background: linear-gradient(135deg, var(--bg), #D4E9FF);
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 26px;
+    margin-bottom: 20px;
+  }
+  .strength-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 16px;
+  }
+  .strength-list { list-style: none; }
+  .strength-list li {
+    font-size: 14px;
+    color: var(--text-light);
+    padding: 8px 0;
+    border-bottom: 1px solid #F0F4FF;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .strength-list li::before {
+    content: '✓';
+    color: var(--blue);
+    font-weight: 700;
+    font-size: 12px;
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+
+  /* ── COMPARISON TABLE ────────────────── */
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(13,33,81,0.1);
+  }
+
+  .compare-table thead tr {
+    background: var(--navy);
+  }
+  .compare-table thead th {
+    padding: 20px 28px;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 0.5px;
+  }
+  .compare-table thead th:last-child {
+    background: var(--blue);
+  }
+
+  .compare-table tbody tr:nth-child(odd) td { background: #F8FBFF; }
+  .compare-table tbody tr:nth-child(even) td { background: var(--white); }
+
+  .compare-table td {
+    padding: 18px 28px;
+    font-size: 15px;
+    border-bottom: 1px solid var(--border);
+  }
+  .compare-table td:first-child { font-weight: 700; color: var(--navy); }
+  .compare-table td:last-child { color: var(--blue); font-weight: 600; }
+
+  /* ── REVENUE CHART ───────────────────── */
+  .revenue-section {
+    background: linear-gradient(180deg, var(--navy) 0%, #162D6B 100%);
+    padding: 100px 0;
+  }
+  .revenue-section .section-num { color: rgba(255,255,255,0.05); }
+  .revenue-section .section-title { color: var(--white); }
+  .revenue-section .section-title::after { background: linear-gradient(90deg, var(--light-blue), var(--accent)); }
+  .revenue-section .section-desc { color: rgba(255,255,255,0.6); }
+
+  .chart-wrap {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 24px;
+    height: 280px;
+    margin-top: 64px;
+  }
+
+  .bar-group { display: flex; flex-direction: column; align-items: center; gap: 12px; flex: 1; }
+
+  .bar-wrap {
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    height: 240px;
+  }
+
+  .bar {
+    width: 70%;
+    border-radius: 8px 8px 0 0;
+    background: linear-gradient(180deg, rgba(74,158,232,0.5), rgba(74,158,232,0.2));
+    border: 1px solid rgba(74,158,232,0.5);
+    position: relative;
+    transition: all 0.4s ease;
+    animation: growUp 1s ease both;
+  }
+
+  .bar:hover { background: linear-gradient(180deg, var(--accent), rgba(240,165,0,0.4)); }
+
+  .bar-value {
+    position: absolute;
+    top: -28px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--sky);
+    white-space: nowrap;
+  }
+
+  .bar-2025 {
+    background: linear-gradient(180deg, var(--accent), rgba(240,165,0,0.3));
+    border-color: var(--accent);
+  }
+  .bar-2025 .bar-value { color: var(--accent); font-size: 15px; }
+
+  .bar-year {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    font-weight: 600;
+  }
+
+  /* ── CONCLUSION ──────────────────────── */
+  .conclusion {
+    background: var(--bg);
+    padding: 100px 0;
+  }
+
+  .insight-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-bottom: 56px;
+  }
+
+  .insight-card {
+    background: var(--white);
+    border-left: 5px solid var(--blue);
+    border-radius: 0 12px 12px 0;
+    padding: 28px 28px 28px 24px;
+    box-shadow: 0 2px 12px rgba(13,33,81,0.06);
+  }
+  .insight-card strong {
+    display: block;
+    font-size: 16px;
+    color: var(--navy);
+    margin-bottom: 10px;
+  }
+  .insight-card p {
+    font-size: 14px;
+    color: var(--text-light);
+    line-height: 1.8;
+  }
+
+  .quote-block {
+    background: linear-gradient(135deg, var(--navy), #1A3A8F);
+    border-radius: 20px;
+    padding: 56px 64px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .quote-block::before {
+    content: '"';
+    position: absolute;
+    font-family: Georgia, serif;
+    font-size: 400px;
+    color: rgba(255,255,255,0.02);
+    top: -80px; left: 0;
+    line-height: 1;
+  }
+  .quote-text {
+    font-size: 20px;
+    color: rgba(255,255,255,0.9);
+    line-height: 1.9;
+    font-weight: 300;
+    position: relative;
+    z-index: 1;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .quote-text em { color: var(--sky); font-style: normal; font-weight: 700; }
+
+  /* ── FOOTER ──────────────────────────── */
+  footer {
+    background: var(--navy);
+    padding: 48px 0;
+    text-align: center;
+  }
+  footer p {
+    font-size: 13px;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 1px;
+  }
+  .footer-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    color: rgba(255,255,255,0.7);
+    letter-spacing: 4px;
+    margin-bottom: 12px;
+  }
+
+  /* ── ANIMATIONS ──────────────────────── */
+  @keyframes fadeInDown { from { opacity:0; transform:translateY(-20px); } to { opacity:1; transform:translateY(0); } }
+  @keyframes fadeInUp   { from { opacity:0; transform:translateY(20px);  } to { opacity:1; transform:translateY(0); } }
+  @keyframes scaleIn    { from { opacity:0; transform:scaleX(0); } to { opacity:1; transform:scaleX(1); } }
+  @keyframes growUp     { from { height:0; } to { } }
+
+  /* ── RESPONSIVE ──────────────────────── */
+  @media (max-width: 768px) {
+    .hero-stats { gap: 32px; }
+    .values-grid, .pillar-grid, .strength-grid, .stack-grid { grid-template-columns: 1fr; }
+    .insight-grid { grid-template-columns: 1fr; }
+    .biz-row { grid-template-columns: 1fr; }
+    .info-grid { grid-template-columns: 1fr; }
+    .compare-table { font-size: 13px; }
+    .container { padding: 0 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <span class="hero-badge">2026 Company Value Report</span>
+  <div class="hero-logo">DAEWON CTS</div>
+  <div class="hero-sub">대원씨티에스 기업 가치 보고서</div>
+  <div class="hero-divider"></div>
+  <p class="hero-tagline">End-to-End AI & IT 인프라 파트너 — 고객의 복잡성을 제거하고 실행 가능한 성과를 만들다</p>
+  <div class="hero-stats">
+    <div class="stat-item">
+      <span class="stat-number">8,663억</span>
+      <span class="stat-label">2025 매출액</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">37년</span>
+      <span class="stat-label">업력</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">40+</span>
+      <span class="stat-label">글로벌 총판 브랜드</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">270명</span>
+      <span class="stat-label">임직원</span>
+    </div>
+  </div>
+</div>
+
+<!-- 01 회사 개요 -->
+<section>
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">01</div>
+      <h2 class="section-title">회사 개요</h2>
+      <p class="section-desc">1988년 창립 이후 37년간 한국 IT 유통의 핵심 파트너로 성장해온 대원씨티에스의 기본 현황입니다.</p>
+    </div>
+
+    <div class="info-grid">
+      <div class="info-label">회사명</div><div class="info-value">대원씨티에스(주)</div>
+      <div class="info-label">설립일</div><div class="info-value">1988년 3월 24일 (업력 37년)</div>
+      <div class="info-label">대표이사</div><div class="info-value">하성원, 이상호, 김보경</div>
+      <div class="info-label">임직원 수</div><div class="info-value">약 270명 (2025년 12월말 기준)</div>
+      <div class="info-label">매출액</div><div class="info-value info-highlight">8,663억 원 (2025년 12월말 기준)</div>
+      <div class="info-label">본사 소재지</div><div class="info-value">서울시 영등포구 국회대로 539</div>
+      <div class="info-label">슬로건</div><div class="info-value">Dynamic Value Creator</div>
+      <div class="info-label">B2B 플랫폼</div><div class="info-value">컴퓨터코리아 (computer.co.kr) — 회원사 18,000여 곳, 5만여 종 상품</div>
+    </div>
+
+    <div class="values-grid">
+      <div class="value-card">
+        <span class="value-korean">책임</span>
+        <div class="value-sub">대원인의 마음가짐</div>
+        <div class="value-desc">즉시 한다! 목적을 알고 실행한다! 문제는 반드시 해결한다!</div>
+      </div>
+      <div class="value-card">
+        <span class="value-korean">도전</span>
+        <div class="value-sub">대원인의 행동양식</div>
+        <div class="value-desc">앞서 나간다! 끊임없이 배운다! 과감하게 시도한다!</div>
+      </div>
+      <div class="value-card">
+        <span class="value-korean">상생</span>
+        <div class="value-sub">대원인의 기본철학</div>
+        <div class="value-desc">함께 성장한다! 좋은 이익을 추구한다! 존중하고 배려한다!</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 핵심 가치 제안 -->
+<section>
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">02</div>
+      <h2 class="section-title">핵심 가치 제안</h2>
+      <p class="section-desc">대원씨티에스가 고객에게 제공하는 차별화된 가치의 핵심을 세 가지 관점에서 정리합니다.</p>
+    </div>
+
+    <div class="vp-headline">
+      <p>
+        대원씨티에스는 고객의 IT·AI 도입을 <strong>'구매'</strong>가 아닌 <strong>'즉시 실행 가능한 비즈니스 인프라'</strong>로 전환시켜,<br>
+        복잡성을 제거하고 속도·효율·성과를 동시에 높여주는 <strong>End-to-End 파트너</strong>다.
+      </p>
+    </div>
+
+    <div class="pillar-grid">
+      <div class="pillar">
+        <div class="pillar-num">01</div>
+        <div class="pillar-title">복잡성 제거<br>— 실행 리스크 흡수</div>
+        <p class="pillar-text">CPU, GPU, 서버, 네트워크, AI 플랫폼 등 수십 가지 요소를 통합 제공해 고객의 의사결정 부담을 구조적으로 제거합니다.</p>
+        <ul class="pillar-bullets">
+          <li>칩부터 데이터센터까지 단일 파트너</li>
+          <li>벤더 분산 리스크 완전 제거</li>
+          <li>기술 설계 → 비즈니스 실행에만 집중</li>
+        </ul>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">02</div>
+        <div class="pillar-title">AI 도입 → 비즈니스 성과<br>— PoC 탈출 구조</div>
+        <p class="pillar-text">대부분의 기업이 PoC 단계에서 멈추는 현실에서, 실제 성과 창출까지의 전 실행 구조를 지원합니다.</p>
+        <ul class="pillar-bullets">
+          <li>MLOps/LLMOps 플랫폼 최적화</li>
+          <li>데이터 파이프라인 허브 구축</li>
+          <li>Agentic AI 에이전트 배포·운영</li>
+        </ul>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">03</div>
+        <div class="pillar-title">속도 + 비용 최적화<br>— 조달 리드타임 단축</div>
+        <p class="pillar-text">자체 플랫폼·물류·여신 시스템으로 B2B 고객의 전체 조달 프로세스 시간과 비용을 동시에 줄입니다.</p>
+        <ul class="pillar-bullets">
+          <li>'컴퓨터코리아' 즉시 견적·발주</li>
+          <li>김포·파주 물류캠프 신속 배송</li>
+          <li>여신 거래로 현금 부담 완화</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 주요 사업 -->
+<section>
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">03</div>
+      <h2 class="section-title">주요 사업 영역</h2>
+      <p class="section-desc">5개 핵심 사업을 통해 고객의 IT·AI 전환 여정 전반을 커버합니다.</p>
+    </div>
+
+    <div class="biz-list">
+      <div class="biz-row">
+        <div class="biz-label">커머셜 Biz</div>
+        <div class="biz-content">
+          <div class="biz-content-title">PC·서버 컴포넌트 공급</div>
+          <div class="biz-content-text">CPU, GPU, SSD, DRAM, 파워, 쿨러, 케이스, 라우터, 서버용 메인보드 등 핵심 부품 및 조립 PC, 미니 PC, 워크스테이션, 서버 공급</div>
+        </div>
+      </div>
+      <div class="biz-row">
+        <div class="biz-label">커머스 Biz</div>
+        <div class="biz-content">
+          <div class="biz-content-title">IT 기기·소프트웨어 유통</div>
+          <div class="biz-content-text">완제품 PC, 모니터, 드론, 짐벌, CCTV, 가전, 스마트 기기, VR기기, PC 주변기기, Windows·MS Office·한컴오피스 등 소프트웨어</div>
+        </div>
+      </div>
+      <div class="biz-row">
+        <div class="biz-label">엔터프라이즈 Biz</div>
+        <div class="biz-content">
+          <div class="biz-content-title">풀스택 AI 인프라 구축·운영</div>
+          <div class="biz-content-text">AI 가속 서버, 엔터프라이즈 스토리지, 네트워크 장비, MLOps/LLMOps Engineering, Endpoint Edge AI까지 — 칩부터 데이터 플랫폼까지 파트너 생태계 기반 풀스택 솔루션</div>
+        </div>
+      </div>
+      <div class="biz-row">
+        <div class="biz-label">플랫폼 Biz</div>
+        <div class="biz-content">
+          <div class="biz-content-title">B2B 전문 플랫폼 '컴퓨터코리아'</div>
+          <div class="biz-content-text">1만 8천 여 가입 회원사, 5만 여 종 상품, 전문 MD 컨설팅·견적 지원, 여신 거래, 업종별 맞춤 지원 (기업, 교육, 병원, 관공서 등)</div>
+        </div>
+      </div>
+      <div class="biz-row">
+        <div class="biz-label">물류 Biz</div>
+        <div class="biz-content">
+          <div class="biz-content-title">3PL / 4PL / 보세창고 통합 물류</div>
+          <div class="biz-content-text">김포캠프(3,645평, Max 8,500 p/t) + 파주캠프(2,600평, Max 6,500 p/t), WMS 기반 자동화, 무진동 특수배송, 대량 조립·CTO 서비스</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 64px;">
+      <h3 style="font-size: 22px; font-weight: 700; color: var(--navy); margin-bottom: 8px;">데이터센터 & AI 솔루션 스택</h3>
+      <p style="font-size: 15px; color: var(--text-light); margin-bottom: 0;">고객의 AI 전환을 완성하는 5계층 솔루션 포트폴리오</p>
+      <div class="stack-grid">
+        <div class="stack-item">
+          <div class="stack-icon">🤖</div>
+          <div class="stack-name">AI Model</div>
+          <div class="stack-desc">EXAONE, ClovaX, LLaMA, Gemini 등 Sovereign AI & Vertical AI 도메인 특화 모델</div>
+        </div>
+        <div class="stack-item">
+          <div class="stack-icon">⚙️</div>
+          <div class="stack-name">Optimization</div>
+          <div class="stack-desc">MLOps/LLMOps 플랫폼으로 훈련부터 추론까지 자원 효율·성능 최적화</div>
+        </div>
+        <div class="stack-item">
+          <div class="stack-icon">🗄️</div>
+          <div class="stack-name">Data</div>
+          <div class="stack-desc">데이터 레이크 솔루션으로 AI 데이터 파이프라인의 허브 구축</div>
+        </div>
+        <div class="stack-item">
+          <div class="stack-icon">🕸️</div>
+          <div class="stack-name">Agentic AI</div>
+          <div class="stack-desc">멀티 AI 에이전트 구현·배포·운영 엔터프라이즈 플랫폼</div>
+        </div>
+        <div class="stack-item">
+          <div class="stack-icon">🔒</div>
+          <div class="stack-name">Security</div>
+          <div class="stack-desc">AI·Agentic 환경 보안·거버넌스 강화 솔루션</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 주요 강점 -->
+<section>
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">04</div>
+      <h2 class="section-title">주요 강점 분석</h2>
+      <p class="section-desc">신뢰성, 운영 시스템, 물류·금융 인프라의 3축이 대원씨티에스의 경쟁력을 구성합니다.</p>
+    </div>
+
+    <div class="strength-grid">
+      <div class="strength-card">
+        <div class="strength-icon-wrap">🏆</div>
+        <div class="strength-title">신뢰성 & 안정성</div>
+        <ul class="strength-list">
+          <li>40개 이상 글로벌 브랜드 공식 총판</li>
+          <li>고객사 최적화 솔루션 패키지 제공</li>
+          <li>전문 MD 컨설팅·견적 지원</li>
+          <li>모든 거래처 담당 영업사원 배정</li>
+          <li>신규 브랜드·상품 소싱 전담팀 운영</li>
+        </ul>
+      </div>
+      <div class="strength-card">
+        <div class="strength-icon-wrap">🖥️</div>
+        <div class="strength-title">SYSTEM & PROCESS</div>
+        <ul class="strength-list">
+          <li>자체 ERP / SCM / WMS / CRM 보유</li>
+          <li>오더~출고~배송 실시간 추적</li>
+          <li>파트너사 영업 집중 지원 구조</li>
+          <li>AI 솔루션 개발·운영 전담 조직</li>
+          <li>영업·기술·마케팅·AS 통합 지원</li>
+        </ul>
+      </div>
+      <div class="strength-card">
+        <div class="strength-icon-wrap">🚚</div>
+        <div class="strength-title">물류 & 여신 인프라</div>
+        <ul class="strength-list">
+          <li>김포·파주 캠프 (합계 6,245평)</li>
+          <li>3PL / 4PL / 보세창고 복합 서비스</li>
+          <li>WMS 기반 택배포장 자동화 (일 6,000건)</li>
+          <li>여신 거래 지원 (등급별 한도 관리)</li>
+          <li>B2B몰 '컴퓨터코리아' 여신 운영</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 경쟁 차별화 -->
+<section>
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">05</div>
+      <h2 class="section-title">경쟁 차별화 포지셔닝</h2>
+      <p class="section-desc">기존 IT 벤더와 대원씨티에스의 본질적인 차이점을 비교합니다.</p>
+    </div>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>구분</th>
+          <th>기존 IT 벤더</th>
+          <th>대원씨티에스</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>제공 가치</td><td>제품·장비 공급 중심</td><td>즉시 실행 가능한 AI 인프라</td></tr>
+        <tr><td>고객 역할</td><td>설계 + 통합 + 운영 모두 부담</td><td>선택 + 실행에만 집중</td></tr>
+        <tr><td>리스크 부담</td><td>고객이 전적으로 부담</td><td>공급사가 구조적으로 흡수</td></tr>
+        <tr><td>결과 지향점</td><td>도입(Adoption) 완료</td><td>성과(Outcome) 창출</td></tr>
+        <tr><td>파트너 구조</td><td>분산된 멀티 벤더 관리</td><td>단일 통합 파트너</td></tr>
+        <tr><td>물류·금융</td><td>별도 조달 필요</td><td>내재화된 End-to-End 지원</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 06 매출 추이 -->
+<div class="revenue-section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">06</div>
+      <h2 class="section-title">매출 성장 추이</h2>
+      <p class="section-desc">5개년 매출 데이터가 증명하는 대원씨티에스의 시장 신뢰도와 성장 역량</p>
+    </div>
+
+    <div class="chart-wrap">
+      <div class="bar-group">
+        <div class="bar-wrap"><div class="bar" style="height:217px; animation-delay:0s;"><span class="bar-value">7,955억</span></div></div>
+        <span class="bar-year">2021</span>
+      </div>
+      <div class="bar-group">
+        <div class="bar-wrap"><div class="bar" style="height:209px; animation-delay:0.1s;"><span class="bar-value">7,650억</span></div></div>
+        <span class="bar-year">2022</span>
+      </div>
+      <div class="bar-group">
+        <div class="bar-wrap"><div class="bar" style="height:183px; animation-delay:0.2s;"><span class="bar-value">6,730억</span></div></div>
+        <span class="bar-year">2023</span>
+      </div>
+      <div class="bar-group">
+        <div class="bar-wrap"><div class="bar" style="height:189px; animation-delay:0.3s;"><span class="bar-value">6,937억</span></div></div>
+        <span class="bar-year">2024</span>
+      </div>
+      <div class="bar-group">
+        <div class="bar-wrap"><div class="bar bar-2025" style="height:236px; animation-delay:0.4s;"><span class="bar-value">8,663억 ★</span></div></div>
+        <span class="bar-year" style="color:var(--accent); font-weight:700;">2025</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 07 결론 -->
+<div class="conclusion">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">07</div>
+      <h2 class="section-title">전략적 인사이트 & 결론</h2>
+      <p class="section-desc">대원씨티에스가 고객에게 전달하는 본질적 가치의 요약</p>
+    </div>
+
+    <div class="insight-grid">
+      <div class="insight-card">
+        <strong>🎯 복잡성 제거</strong>
+        <p>단일 파트너로 IT·AI 전 영역 의사결정을 단순화. 고객은 '무엇을 조합할지'가 아니라 '무엇을 실행할지'만 고민하면 된다.</p>
+      </div>
+      <div class="insight-card">
+        <strong>📈 성과 연결</strong>
+        <p>PoC에서 실제 비즈니스 성과까지의 실행 구조 제공. 고객은 기술 도입이 아닌 '비즈니스 성과'를 도입한다.</p>
+      </div>
+      <div class="insight-card">
+        <strong>⚡ 속도 최적화</strong>
+        <p>자체 플랫폼·물류·여신으로 조달 리드타임을 구조적으로 단축. 고객 내부 리소스를 전략 업무에 집중시킨다.</p>
+      </div>
+      <div class="insight-card">
+        <strong>🛡️ 리스크 흡수</strong>
+        <p>기술·조달·운영 리스크를 공급사가 구조적으로 흡수. 고객의 실행 불확실성을 최소화한다.</p>
+      </div>
+    </div>
+
+    <div class="quote-block">
+      <p class="quote-text">
+        "많은 기업이 AI를 도입하지만 실제 성과까지 연결하지 못합니다.<br>
+        대원씨티에스는 장비 공급이 아니라, 고객이 <em>바로 실행 가능한 AI 인프라 전체</em>를<br>
+        설계하고 운영까지 지원합니다.<br>
+        결과적으로 고객은 기술이 아니라 <em>'성과'를 도입</em>하게 됩니다."
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">DAEWON CTS</div>
+  <p>© 2026 DAEWON CTS Co., Ltd. — Dynamic Value Creator</p>
+  <p style="margin-top:8px;">서울시 영등포구 국회대로 539 | www.computer.co.kr</p>
+</footer>
+
+</body>
+</html>
